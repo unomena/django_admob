@@ -6,14 +6,14 @@ except ImportError:
 import admob
 
 
-def analytics(view):
+def analytics(view, **admob_kwargs):
     """
     Construct an AdMob analytics request.
     Requires admob.middleware.AdMobMiddleware.
     
     """
     def _dec(request, *args, **kwargs):
-        admob.analytics(request, params=None, fail_silently=False)
+        admob.analytics(request, **admob_kwargs)
         request.has_admob = True
         return view(request, *args, **kwargs)
     return _dec
