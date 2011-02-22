@@ -1,6 +1,6 @@
 from django import template
 
-from admob import ad, analytics
+from django_admob import ad, analytics
 
 
 register = template.Library()
@@ -42,6 +42,6 @@ class AnalyticsMaybeAd(template.Node):
 def do_analyticsmaybead(parser, token):
     bits = token.contents.split()
     if len(bits) != 2:
-        raise TemplateSyntaxError, "abmob_analytics_maybe_ad tag takes exactly one argument"
+        raise template.TemplateSyntaxError('abmob_analytics_maybe_ad tag takes exactly one argument')
     return AnalyticsMaybeAd(bits[1])
 register.tag('abmob_analytics_maybe_ad', do_analyticsmaybead)
