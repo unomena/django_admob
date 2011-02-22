@@ -18,7 +18,7 @@ class AdMobAdTag(template.Node):
 
 def do_admobad(parser, token):
     return AdMobAdTag()
-register.tag('admob', do_admobad)
+register.tag('admob_ad', do_admobad)
 
 
 class AnalyticsMaybeAd(template.Node):
